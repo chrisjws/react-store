@@ -22,6 +22,14 @@
   text-align: left;
  }
 
+.DarkMode {
+  background-color: black;
+}
+
+.Default {
+  background-color: white;
+}
+
 .heading {
   flex-grow: 1;
 }

@@ -35,10 +35,10 @@ function App() {
   const [categories, setCategories] = useState([] as CategoryDetails[]);
   const [cart, setCart] = useState(storeData.getCart());
   const [featureFlags, setFeatureFlags] = useState({});
-  console.log(process.env.PUBLIC_URL);
+
   useEffect(() => {
     const cf = initialize(
-      '5a28e13d-9625-4573-9bbc-3277eb3e3bf9',
+      '',
       {
         identifier: 'target',
         attributes: {
@@ -83,7 +83,8 @@ function App() {
     setCart(cart);
   }
 
-  let className = featureFlags.ShopHeader ? 'App.Left' : 'App';
+  let headerClassName = featureFlags.ShopHeader ? 'App.Left' : 'App';
+  let className = featureFlags.DarkMode ? 'DarkMode' : 'Default';
 
   return (
     <CartContext.Provider value={{ cart, setCart: updateCart }}>
