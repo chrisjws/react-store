@@ -28,7 +28,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           cluster-name: test 
           aws-secret-access-key: asdfsadf 
-          aws-region: us-east-2 
+          aws-region: "us-east-2"
           aws-access-key-id: asfddsf 
           family: test 
   say-hello-workflow:
