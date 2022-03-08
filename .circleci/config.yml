@@ -4,6 +4,8 @@ version: 2.1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+orbs:
+  aws-ecs: circleci/aws-ecs@2.2.1
 jobs:
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
@@ -21,6 +23,14 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
+  example-workflow:
+    jobs:
+      - aws-ecs/deploy-service-update:
+          cluster-name: test 
+          aws-secret-access-key: asdfsadf 
+          aws-region: us-east-2 
+          aws-access-key-id: asfddsf 
+          family: test 
   say-hello-workflow:
     jobs:
       - say-hello
